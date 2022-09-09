@@ -1,0 +1,29 @@
+name: flutter_analyze
+
+on:
+  push:
+    branches:
+      - develop
+
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  lint:
+    name: flutter_analyze
+    runs-on: ubuntu-latest
+    steps:
+      - name: set up repository
+        uses: actions/checkout@v3
+      - name: set up flutter
+        uses: subosito/flutter-action@v2.6.1
+        with:
+          channel: "stable"
+          cache: false
+      - name: flutter doctor
+        run: flutter doctor -v
+      - name: flutter pub get
+        run: flutter pub get
+      - name: flutter analyze
+        run: flutter analyze

@@ -1,5 +1,4 @@
 import 'package:ai_hokusai/src/features/generate_image/generate_image_page.dart';
-import 'package:ai_hokusai/src/features/onboarding/onbording_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

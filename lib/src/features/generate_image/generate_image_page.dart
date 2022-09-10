@@ -8,7 +8,7 @@ class GenerateImagePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('画像を生成'),
+        title: const Text('画像を生成'),
       ),
     );
   }

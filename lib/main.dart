@@ -1,3 +1,4 @@
+import 'package:ai_hokusai/src/features/generate_image/generate_image_page.dart';
 import 'package:ai_hokusai/src/features/onboarding/onbording_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: const OnboardingPage(),
+      home: const GenerateImagePage(),
     );
   }
 }

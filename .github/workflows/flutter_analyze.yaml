@@ -10,9 +10,12 @@ on:
       - develop
 
 jobs:
+  strategy:
+    matrix:
+      os: [macos-latest, windows-latest, ubuntu-latest]
   lint:
     name: flutter_analyze
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - name: set up repository
         uses: actions/checkout@v3

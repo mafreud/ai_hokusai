@@ -10,10 +10,10 @@ on:
       - develop
 
 jobs:
-  strategy:
-    matrix:
-      os: [macos-latest, windows-latest, ubuntu-latest]
   lint:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
     name: flutter_analyze
     runs-on: ${{ matrix.os }}
     steps:

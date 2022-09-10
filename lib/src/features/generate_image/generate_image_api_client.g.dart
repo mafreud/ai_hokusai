@@ -24,7 +24,7 @@ class _GenerateImageApiClient implements GenerateImageApiClient {
     _data.addAll(json);
     final _result = await _dio.fetch(_setStreamType<dynamic>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, 'users',
+            .compose(_dio.options, 'v2',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;

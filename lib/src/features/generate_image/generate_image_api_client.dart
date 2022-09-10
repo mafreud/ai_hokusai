@@ -13,7 +13,12 @@ abstract class GenerateImageApiClient {
   Future<dynamic> generateImage(@Body() Map<String, dynamic> json);
 }
 
-final userApiClientProvider = Provider<GenerateImageApiClient>((ref) {
-  return GenerateImageApiClient(Dio(),
+final generateImageApiClientProvider = Provider<GenerateImageApiClient>((ref) {
+  final dio = Dio(); // Provide a dio instance
+  dio.options.headers = {
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-cache'
+  };
+  return GenerateImageApiClient(dio,
       baseUrl: "https://api.rinna.co.jp/models/tti/");
 });

@@ -9,11 +9,11 @@ abstract class GenerateImageApiClient {
   factory GenerateImageApiClient(Dio dio, {String baseUrl}) =
       _GenerateImageApiClient;
 
-  @POST('users')
+  @POST('v2')
   Future<dynamic> generateImage(@Body() Map<String, dynamic> json);
 }
 
 final userApiClientProvider = Provider<GenerateImageApiClient>((ref) {
   return GenerateImageApiClient(Dio(),
-      baseUrl: "https://api.rinna.co.jp/models/tti/v2");
+      baseUrl: "https://api.rinna.co.jp/models/tti/");
 });

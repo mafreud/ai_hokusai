@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "152856850111",
+    "project_id": "ai-hokusai-release",
+    "storage_bucket": "ai-hokusai-release.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152856850111:android:413457264644355e6fa00a",
+        "android_client_info": {
+          "package_name": "com.ai.hokusai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152856850111-hv9v9002bj1k1fj8pjp59bc3738gd78l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpHLlDD9G-Y8VEZ6jmhMR9rJOyoZB0f0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152856850111-hv9v9002bj1k1fj8pjp59bc3738gd78l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "152856850111-viiltig46fjq97po5861ap25tan6rg0g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ai.hokusai"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

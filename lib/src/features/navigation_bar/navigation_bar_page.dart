@@ -1,4 +1,7 @@
+import 'package:ai_hokusai/src/features/collections/everyones_collections/everyones_collections_page.dart';
+import 'package:ai_hokusai/src/features/collections/my_collections/my_collections_page.dart';
 import 'package:ai_hokusai/src/features/generate_image/generate_image_page.dart';
+import 'package:ai_hokusai/src/features/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBarPage extends StatefulWidget {
@@ -34,20 +37,17 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
             icon: Icon(Icons.people),
             label: 'みんなの作品',
           ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: '設定',
+          ),
         ],
       ),
       body: <Widget>[
         const GenerateImagePage(),
-        Container(
-          color: Colors.green,
-          alignment: Alignment.center,
-          child: const Text('Page 2'),
-        ),
-        Container(
-          color: Colors.blue,
-          alignment: Alignment.center,
-          child: const Text('Page 3'),
-        ),
+        const MyCollectionsPage(),
+        const EveryonesCollectionsPage(),
+        const SettingsPage()
       ][currentPageIndex],
     );
   }

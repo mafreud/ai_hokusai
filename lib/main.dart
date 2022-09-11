@@ -1,4 +1,4 @@
-import 'package:ai_hokusai/src/features/onboarding/onboarding_page.dart';
+import 'package:ai_hokusai/src/features/auth/auth_gate.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: const OnboardingPage(),
+      home: const AuthGate(),
     );
   }
 }

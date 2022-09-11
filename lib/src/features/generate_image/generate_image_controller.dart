@@ -1,5 +1,6 @@
-import 'package:ai_hokusai/src/features/generate_image/generate_image_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'generate_image_model/generate_image_model.dart';
 
 class GenerateImageController extends StateNotifier<GenerateImageModel> {
   GenerateImageController()
@@ -14,7 +15,7 @@ class GenerateImageController extends StateNotifier<GenerateImageModel> {
   }
 }
 
-final generateImageControllerProvider =
-    StateNotifierProvider<GenerateImageController, GenerateImageModel>((ref) {
+final generateImageControllerProvider = StateNotifierProvider.autoDispose<
+    GenerateImageController, GenerateImageModel>((ref) {
   return GenerateImageController();
 });

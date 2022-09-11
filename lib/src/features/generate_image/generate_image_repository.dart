@@ -1,5 +1,6 @@
-import 'package:ai_hokusai/src/features/generate_image/generate_image_api_client.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'generate_image_api/generate_image_api_client.dart';
 
 class GenerateImageRepository {
   GenerateImageRepository({required this.generateImageApiClient});

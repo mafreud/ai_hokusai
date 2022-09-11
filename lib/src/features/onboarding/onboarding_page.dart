@@ -1,32 +1,48 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class OnboardingPage extends ConsumerWidget {
+class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('Welcome'),
-      ),
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Text(
-            'AI 北斎',
-            style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              //
-            },
-            child: const Text('はじめる'),
-          )
-        ]),
+  State<OnboardingPage> createState() => _OnboardingPageState();
+}
+
+class _OnboardingPageState extends State<OnboardingPage> {
+  bool isLoading = false;
+  @override
+  Widget build(BuildContext context) {
+    return ModalProgressHUD(
+      inAsyncCall: isLoading,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Text('Welcome'),
+        ),
+        body: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const Text(
+              'AI 北斎',
+              style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                setState(() {
+                  isLoading = true;
+                });
+                await FirebaseAuth.instance.signInAnonymously();
+                setState(() {
+                  isLoading = false;
+                });
+              },
+              child: const Text('はじめる'),
+            )
+          ]),
+        ),
       ),
     );
   }

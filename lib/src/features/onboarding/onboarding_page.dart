@@ -11,6 +11,7 @@ class OnboardingPage extends StatefulWidget {
 
 class _OnboardingPageState extends State<OnboardingPage> {
   bool isLoading = false;
+  bool isAgreed = false;
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
@@ -30,16 +31,33 @@ class _OnboardingPageState extends State<OnboardingPage> {
               height: 40,
             ),
             ElevatedButton(
-              onPressed: () async {
-                setState(() {
-                  isLoading = true;
-                });
-                await FirebaseAuth.instance.signInAnonymously();
-                setState(() {
-                  isLoading = false;
-                });
-              },
+              onPressed: isAgreed
+                  ? () async {
+                      setState(() {
+                        isLoading = true;
+                      });
+                      await FirebaseAuth.instance.signInAnonymously();
+                      setState(() {
+                        isLoading = false;
+                      });
+                    }
+                  : null,
               child: const Text('はじめる'),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: 300,
+              child: CheckboxListTile(
+                title: const Text('利用規約に同意する'),
+                value: isAgreed,
+                onChanged: (value) {
+                  setState(() {
+                    isAgreed = value!;
+                  });
+                },
+              ),
             )
           ]),
         ),

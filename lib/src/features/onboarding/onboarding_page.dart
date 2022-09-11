@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -50,7 +51,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
             SizedBox(
               width: 300,
               child: CheckboxListTile(
-                title: const Text('利用規約に同意する'),
+                title: GestureDetector(
+                  onTap: () {
+                    _launchUrl();
+                  },
+                  child: const Text(
+                    '利用規約に同意する',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
                 value: isAgreed,
                 onChanged: (value) {
                   setState(() {
@@ -63,5 +72,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
       ),
     );
+  }
+
+  Future<void> _launchUrl() async {
+    const url = 'https://www.notion.so/e20a6130ea104fff82a86937e4f4528d';
+    if (!await launchUrl(Uri.parse(url))) {
+      throw 'Could not launch ${Uri.parse(url)}}';
+    }
   }
 }

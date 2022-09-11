@@ -1,8 +1,15 @@
-import 'package:ai_hokusai/src/features/generate_image/generate_image_page.dart';
+import 'package:ai_hokusai/src/features/onboarding/onboarding_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -18,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: const GenerateImagePage(),
+      home: const OnboardingPage(),
     );
   }
 }

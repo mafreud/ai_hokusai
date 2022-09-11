@@ -7,13 +7,23 @@ class OnboardingPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Welcome'),
       ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          const Text(
+            'AI 北斎',
+            style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 40,
+          ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              //
+            },
             child: const Text('はじめる'),
           )
         ]),

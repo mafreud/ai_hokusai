@@ -65,6 +65,7 @@ class EveryonesCollectionsPage extends ConsumerWidget {
                                 },
                               );
                               // TODO(mafreud): 通報ロジックを追加
+                              // ignore: use_build_context_synchronously
                               Navigator.pop(context);
                             },
                             child: const Text('ブロック'),

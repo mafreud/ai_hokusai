@@ -1,32 +1,11 @@
-name: flutter_analyze
-
+name: Flutter Analyze
 on:
-  push:
-    branches:
-      - develop
-
   pull_request:
-    branches:
-      - develop
+    types: [opened, edited, synchronize]
 
 jobs:
-  lint:
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
-    name: flutter_analyze
-    runs-on: ${{ matrix.os }}
+  check_dependencies:
+    runs-on: openci-macos-m1-mini
     steps:
-      - name: set up repository
-        uses: actions/checkout@v3
-      - name: set up flutter
-        uses: subosito/flutter-action@v2.7.0
-        with:
-          channel: "stable"
-          cache: false
-      - name: flutter doctor
-        run: flutter doctor -v
-      - name: flutter pub get
-        run: flutter pub get
-      - name: flutter analyze
+      - name: Run Flutter Analyze
         run: flutter analyze
